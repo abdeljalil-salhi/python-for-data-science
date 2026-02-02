@@ -7,6 +7,12 @@ from load_image import ft_load
 
 
 def main(path: str = "animal.jpeg") -> None:
+    """
+    Main function to load an image, zoom into it, and display the result.
+
+    Args:
+        path (str): Path to the image file. Defaults to "animal.jpeg".
+    """
     try:
         array, h, w = ft_load(path)
         print(array)
