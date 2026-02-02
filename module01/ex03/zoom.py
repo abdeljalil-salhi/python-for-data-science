@@ -40,7 +40,7 @@ def main(path: str = "animal.jpeg") -> None:
         print(f"Error: File '{path}' not found.", file=sys.stderr)
         sys.exit(1)
     except Image.UnidentifiedImageError:
-        print(f"Error: Cannot open '{path}' —\
+        print(f"Error: Cannot open '{path}' — \
             unsupported or corrupted image format.", file=sys.stderr)
         sys.exit(1)
     except ValueError as ve:
