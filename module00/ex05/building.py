@@ -74,30 +74,26 @@ def main() -> None:
     Raises:
         AssertionError: If more than one argument is provided.
     """
-    if len(sys.argv) > 2:
-        raise AssertionError("more than one argument is provided")
-    elif len(sys.argv) == 2:
-        text = sys.argv[1]
-    else:
-        try:
-            text = input("What is the text to count?\n")
-            text += "\n"
-        except EOFError:
-            pass
-
-    f = count(text)
-
-    print(f"The text contains {f.length} characters:")
-    print(f"{f.uppercase} upper letters")
-    print(f"{f.lowercase} lower letters")
-    print(f"{f.punctuation} punctuation marks")
-    print(f"{f.spaces} spaces")
-    print(f"{f.digits} digits")
-
-
-if __name__ == "__main__":
     try:
-        main()
+        if len(sys.argv) > 2:
+            raise AssertionError("more than one argument is provided")
+        elif len(sys.argv) == 2:
+            text = sys.argv[1]
+        else:
+            try:
+                text = input("What is the text to count?\n")
+                text += "\n"
+            except EOFError:
+                pass
+
+        f = count(text)
+
+        print(f"The text contains {f.length} characters:")
+        print(f"{f.uppercase} upper letters")
+        print(f"{f.lowercase} lower letters")
+        print(f"{f.punctuation} punctuation marks")
+        print(f"{f.spaces} spaces")
+        print(f"{f.digits} digits")
     except AssertionError as e:
         print(f"AssertionError: {e}", file=sys.stderr)
         sys.exit(1)
@@ -107,3 +103,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()
