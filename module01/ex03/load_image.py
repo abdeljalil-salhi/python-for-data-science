@@ -1,18 +1,21 @@
 import numpy as np
 from PIL import Image
+from typing import Tuple
 
 
-def ft_load(path: str) -> np.ndarray:
+def ft_load(path: str) -> Tuple[np.ndarray, int, int]:
     """
     Loads an image from the given path (supports JPG/JPEG),
-    prints its RGB pixel content shape,
-    and returns the image as a NumPy array in shape (height, width, 3).
+    prints its RGB pixel content shape.
 
     Args:
         path (str): The file path to the image.
 
     Returns:
-        np.ndarray: The image as a NumPy array with shape (height, width, 3).
+        Tuple[np.ndarray, int, int]: A tuple containing:
+            - The image as a NumPy array with shape (height, width, 3).
+            - The height of the image.
+            - The width of the image.
 
     Raises:
         FileNotFoundError: If the file does not exist.
@@ -31,7 +34,7 @@ def ft_load(path: str) -> np.ndarray:
         h, w, c = array.shape
         print(f"The shape of image is: ({h}, {w}, {c})")
 
-        return array
+        return array, h, w
 
     except FileNotFoundError:
         raise FileNotFoundError(f"File not found: {path}")
