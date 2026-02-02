@@ -4,11 +4,20 @@ from PIL import Image
 
 def ft_load(path: str) -> np.ndarray:
     """
-    Loads an image from the given path (supports at least JPG/JPEG),
-    prints its format and RGB pixel content shape,
+    Loads an image from the given path (supports JPG/JPEG),
+    prints its RGB pixel content shape,
     and returns the image as a NumPy array in shape (height, width, 3).
 
-    Raises clear error messages for unsupported formats or invalid files.
+    Args:
+        path (str): The file path to the image.
+
+    Returns:
+        np.ndarray: The image as a NumPy array with shape (height, width, 3).
+
+    Raises:
+        FileNotFoundError: If the file does not exist.
+        ValueError: If the file format is unsupported or cannot be identified.
+        RuntimeError: For other errors during image loading.
     """
     try:
         img = Image.open(path)
