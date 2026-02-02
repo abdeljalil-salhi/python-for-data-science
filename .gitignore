@@ -1,2 +1,4 @@
 __pycache__
 venv/
+dist/
+ft_package.egg-info/
