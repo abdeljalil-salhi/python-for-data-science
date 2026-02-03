@@ -13,11 +13,13 @@ class calculator:
             V1 (list[float]): The first vector.
             V2 (list[float]): The second vector.
         """
-        i = 0
         dot_product = 0
+
+        i = 0
         while i < len(V1):
             dot_product += V1[i] * V2[i]
             i += 1
+
         print(f"Dot Product is: {int(dot_product)}")
 
     @staticmethod
