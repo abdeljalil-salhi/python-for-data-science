@@ -11,8 +11,9 @@ class Character(ABC):
         """
         Initializes a Character instance.
 
-        :param first_name: The first name of the character.
-        :param is_alive: Boolean indicating if the character is alive.
+        Args:
+            first_name (str): The first name of the character.
+            is_alive (bool): Boolean indicating if the character is alive.
         """
         self.first_name: str = first_name
         self.is_alive: bool = is_alive
@@ -36,8 +37,9 @@ class Stark(Character):
         """
         Initializes a Stark instance, inheriting from Character.
 
-        :param first_name: The first name of the Stark character.
-        :param is_alive: Boolean indicating if the character is alive.
+        Args:
+            first_name (str): The first name of the Stark character.
+            is_alive (bool): Boolean indicating if the character is alive.
         """
         super().__init__(first_name, is_alive)
 
