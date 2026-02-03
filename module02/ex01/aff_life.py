@@ -64,5 +64,5 @@ if __name__ == "__main__":
         print("\nInterrupted by user.", file=sys.stderr)
         sys.exit(0)
     except Exception as e:
-        print(f"Unexpected error: {type(e).__name__} – {e}", file=sys.stderr)
+        print(f"Unexpected error: {type(e).__name__} - {e}", file=sys.stderr)
         sys.exit(1)
