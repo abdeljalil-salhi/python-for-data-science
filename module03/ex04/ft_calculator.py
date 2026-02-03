@@ -4,12 +4,6 @@ class calculator:
     list of floating-point numbers.
     """
 
-    def __init__(self) -> None:
-        """
-        Initializes the calculator.
-        """
-        pass
-
     @staticmethod
     def dotproduct(V1: list[float], V2: list[float]) -> None:
         """
