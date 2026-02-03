@@ -7,6 +7,8 @@ class calculator:
     @staticmethod
     def dotproduct(V1: list[float], V2: list[float]) -> None:
         """
+        @staticmethod
+
         Calculates the dot product of two vectors and prints the result.
 
         Args:
@@ -25,6 +27,8 @@ class calculator:
     @staticmethod
     def add_vec(V1: list[float], V2: list[float]) -> None:
         """
+        @staticmethod
+
         Adds two vectors element-wise and prints the result vector.
 
         Args:
@@ -43,6 +47,8 @@ class calculator:
     @staticmethod
     def sous_vec(V1: list[float], V2: list[float]) -> None:
         """
+        @staticmethod
+
         Subtracts the second vector from the first vector element-wise and
         prints the result vector.
 
