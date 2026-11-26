@@ -8,7 +8,7 @@ def NULL_not_found(object: any) -> int:
     elif object == 0 and t is int:
         print("Zero: 0", t)
     elif t is str and len(object) == 0:
-        print("Empty: ", t)
+        print("Empty:", t)
     elif object is False and t is bool:
         print("Fake: False", t)
     else:
