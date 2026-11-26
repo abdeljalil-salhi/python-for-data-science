@@ -16,28 +16,28 @@ def slice_me(family: list, start: int, end: int) -> list:
         list: sliced 2D list (list of lists)
     """
     try:
-        arr = np.array(family, dtype=float)
-    except Exception:
+        arr = np.array(family)
+    except (TypeError, ValueError):
         raise TypeError("family must be a 2D list containing only numbers")
 
     if arr.ndim != 2:
         raise ValueError("family must be a 2D array (list of lists)")
 
+    if not np.issubdtype(arr.dtype, np.number):
+        raise TypeError("family must be a 2D list containing only numbers")
+
     rows, cols = arr.shape
 
     print(f"My shape is : ({rows}, {cols})")
 
-    # negative indices (like normal array slicing)
+    # Negative indices follow the usual Python slicing rules.
+    if start < 0:
+        start = max(rows + start, 0)
     if end < 0:
-        end = rows + end
+        end = max(rows + end, 0)
 
-    if start < 0 or end < 0 or start > rows or end > rows:
+    if start > rows or end > rows:
         raise IndexError("start/end indices out of bounds")
-
-    if start >= end:
-        sliced = arr[start:end]
-        print(f"My new shape is : ({sliced.shape[0]}, {cols})")
-        return sliced.tolist()
 
     sliced = arr[start:end, :]
 
