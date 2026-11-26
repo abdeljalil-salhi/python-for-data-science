@@ -3,13 +3,14 @@ from PIL import Image
 from typing import Tuple
 
 
-def ft_load(path: str) -> Tuple[np.ndarray, int, int]:
+def ft_load(path: str, verbose: bool = True) -> Tuple[np.ndarray, int, int]:
     """
     Loads an image from the given path (supports JPG/JPEG),
-    prints its RGB pixel content shape.
+    prints its RGB pixel content shape when verbose is True.
 
     Args:
         path (str): The file path to the image.
+        verbose (bool): Whether to print the loaded image shape.
 
     Returns:
         Tuple[np.ndarray, int, int]: A tuple containing:
@@ -32,7 +33,8 @@ def ft_load(path: str) -> Tuple[np.ndarray, int, int]:
         array = np.array(img)
 
         h, w, c = array.shape
-        print(f"The shape of image is: ({h}, {w}, {c})")
+        if verbose:
+            print(f"The shape of image is: ({h}, {w}, {c})")
 
         return array, h, w
 
