@@ -37,8 +37,7 @@ def main(path: str = "animal.jpeg") -> None:
         path (str): Path to the image file. Defaults to "animal.jpeg".
     """
     try:
-        array, h, w = ft_load(path)
-        print(array)
+        array, h, w = ft_load(path, verbose=False)
 
         target_size = 400
         if h < target_size or w < target_size:
@@ -57,6 +56,9 @@ def main(path: str = "animal.jpeg") -> None:
 
         gray = np.mean(cropped, axis=-1).astype(np.uint8)
 
+        print(f"The shape of image is: {gray.shape}")
+        print(gray)
+
         transposed = manual_transpose(gray)
 
         print("New shape after Transpose:", transposed.shape)
@@ -72,8 +74,11 @@ def main(path: str = "animal.jpeg") -> None:
         print(f"Error: File '{path}' not found.", file=sys.stderr)
         sys.exit(1)
     except Image.UnidentifiedImageError:
-        print(f"Error: Cannot open '{path}' — \
-            unsupported or corrupted image format.", file=sys.stderr)
+        print(
+            f"Error: Cannot open '{path}' — "
+            "unsupported or corrupted image format.",
+            file=sys.stderr,
+        )
         sys.exit(1)
     except ValueError as ve:
         print(f"Value error: {ve}", file=sys.stderr)
@@ -82,8 +87,11 @@ def main(path: str = "animal.jpeg") -> None:
         print("\nProcess interrupted by user.", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"Unexpected error while processing '{path}': "
-              f"{type(e).__name__} - {e}", file=sys.stderr)
+        print(
+            f"Unexpected error while processing '{path}': "
+            f"{type(e).__name__} - {e}",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
 

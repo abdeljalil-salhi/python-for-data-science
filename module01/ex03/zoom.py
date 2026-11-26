@@ -46,8 +46,11 @@ def main(path: str = "animal.jpeg") -> None:
         print(f"Error: File '{path}' not found.", file=sys.stderr)
         sys.exit(1)
     except Image.UnidentifiedImageError:
-        print(f"Error: Cannot open '{path}' — \
-            unsupported or corrupted image format.", file=sys.stderr)
+        print(
+            f"Error: Cannot open '{path}' — "
+            "unsupported or corrupted image format.",
+            file=sys.stderr,
+        )
         sys.exit(1)
     except ValueError as ve:
         print(f"Value error: {ve}", file=sys.stderr)
@@ -56,8 +59,11 @@ def main(path: str = "animal.jpeg") -> None:
         print("\nProcess interrupted by user.", file=sys.stderr)
         sys.exit(1)
     except Exception as e:
-        print(f"Unexpected error while processing '{path}': \
-            {type(e).__name__} - {e}", file=sys.stderr)
+        print(
+            f"Unexpected error while processing '{path}': "
+            f"{type(e).__name__} - {e}",
+            file=sys.stderr,
+        )
         sys.exit(1)
 
 

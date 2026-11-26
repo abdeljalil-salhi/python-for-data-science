@@ -42,16 +42,18 @@ def main() -> None:
 
     # convert population strings like "12.34M" to numbers
     def convert_pop(x: str) -> float:
+        """Convert a population string such as '1.4B' to a count."""
         if isinstance(x, str):
+            if "B" in x:
+                return float(x.replace("B", "")) * 1_000_000_000
             if "M" in x:
                 return float(x.replace("M", "")) * 1_000_000
-            elif "K" in x:
+            if "K" in x:
                 return float(x.replace("K", "")) * 1_000
-            else:
-                try:
-                    return float(x)
-                except ValueError:
-                    return 0.0
+            try:
+                return float(x)
+            except ValueError:
+                return 0.0
         return float(x) if pd.notna(x) else 0.0
 
     my_pop = [convert_pop(v) for v in my_pop]
@@ -83,6 +85,7 @@ def main() -> None:
     plt.ylabel("Population", fontsize=12)
 
     def millions(x: float, _) -> str:
+        """Format a population value as millions for the Y axis."""
         return f"{x / 1e6:.0f}M"
 
     plt.gca().yaxis.set_major_formatter(plt.FuncFormatter(millions))

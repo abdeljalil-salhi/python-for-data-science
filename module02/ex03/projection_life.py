@@ -76,6 +76,7 @@ def main() -> None:
         color="#1f77b4",
         edgecolors="white",
         linewidth=0.5,
+        label="Countries in 1900",
     )
 
     plt.title(
@@ -87,11 +88,15 @@ def main() -> None:
     plt.ylabel("Life Expectancy", fontsize=12)
 
     plt.xscale("log")  # 300 -> 1k -> 10k
+
+    def format_gdp(x: float, _) -> str:
+        """Format a GDP tick as 'k' units once it reaches 1000."""
+        return f"{x / 1000:.0f}k" if x >= 1000 else f"{x:.0f}"
+
     plt.gca().get_xaxis().set_major_formatter(
-        plt.FuncFormatter(
-            lambda x, _: f"{x/1000:.0f}k" if x >= 1000 else f"{x:.0f}",
-        )
+        plt.FuncFormatter(format_gdp)
     )
+    plt.legend(loc="upper left")
     plt.tight_layout()
 
     plt.show()

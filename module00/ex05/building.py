@@ -23,6 +23,7 @@ class TextStatistics:
         spaces: int = 0,
         digits: int = 0,
     ) -> None:
+        """Initialize all counters to zero or to the supplied values."""
         self.length = length
         self.uppercase = uppercase
         self.lowercase = lowercase
@@ -80,6 +81,7 @@ def main() -> None:
         elif len(sys.argv) == 2:
             text = sys.argv[1]
         else:
+            text = ""
             try:
                 text = input("What is the text to count?\n")
                 text += "\n"

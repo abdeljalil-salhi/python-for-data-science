@@ -51,8 +51,8 @@ def ft_grey(array: np.ndarray) -> np.ndarray:
     """
     Applies a grey filter to the image (simple average of channels).
     """
-    # Average of the three channels
-    grey = array[..., 0] / 3 + array[..., 1] / 3 + array[..., 2] / 3
+    # Average of the three channels.
+    grey = array.sum(axis=-1) / 3
     # Make it 3-channel grey (same value in R,G,B)
     grey_3ch = np.stack([grey, grey, grey], axis=-1)
     Image.fromarray(grey_3ch.astype(np.uint8)).show()

@@ -37,8 +37,8 @@ def load(path: str) -> pd.DataFrame | None:
 
     except Exception as e:
         print(
-            f"Unexpected error while loading '{path}': \
-                {type(e).__name__} - {e}",
+            f"Unexpected error while loading '{path}': "
+            f"{type(e).__name__} - {e}",
             file=sys.stderr,
         )
         return None

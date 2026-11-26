@@ -22,7 +22,7 @@ class calculator:
             dot_product += V1[i] * V2[i]
             i += 1
 
-        print(f"Dot Product is: {int(dot_product)}")
+        print(f"Dot product is: {int(dot_product)}")
 
     @staticmethod
     def add_vec(V1: list[float], V2: list[float]) -> None:

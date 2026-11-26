@@ -16,6 +16,27 @@ class King(Baratheon, Lannister):
         """
         super().__init__(first_name, is_alive)
 
+    @property
+    def eyes(self) -> str:
+        """Return the eye colour stored on this instance."""
+        return self.__dict__["eyes"]
+
+    @eyes.setter
+    def eyes(self, color: str) -> None:
+        """Store the eye colour on this instance."""
+        self.__dict__["eyes"] = color
+
+    @property
+    def hairs(self) -> str:
+        """Return the hair colour stored on this instance."""
+        return self.__dict__.get("hairs", self.__dict__.get("hair", ""))
+
+    @hairs.setter
+    def hairs(self, color: str) -> None:
+        """Store the hair colour on this instance."""
+        self.__dict__.pop("hairs", None)
+        self.__dict__["hair"] = color
+
     def set_eyes(self, color: str) -> None:
         """
         Sets the eye color of the King character.
@@ -32,7 +53,8 @@ class King(Baratheon, Lannister):
         Args:
             color (str): The new hair color.
         """
-        self.hairs = color
+        self.__dict__.pop("hair", None)
+        self.__dict__["hairs"] = color
 
     def get_eyes(self) -> str:
         """
@@ -50,4 +72,4 @@ class King(Baratheon, Lannister):
         Returns:
             str: The hair color.
         """
-        return self.hairs
+        return self.__dict__.get("hairs", self.__dict__.get("hair", ""))
