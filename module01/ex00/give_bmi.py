@@ -22,7 +22,7 @@ def give_bmi(
     for h, w in zip(height, weight):
         if not isinstance(h, (int, float)) or not isinstance(w, (int, float)):
             raise TypeError(
-                "height and weight must contain " "only int or float values"
+                "height and weight must contain only int or float values"
             )
         if h <= 0:
             raise ValueError("height must be greater than 0")
